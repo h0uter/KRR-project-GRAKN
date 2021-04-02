@@ -56,8 +56,6 @@ if __name__ == "__main__":
     print("All the products currently in the knowledgebase are:")
     read_all_from_KB()
 
-
-
     # ask user input
     new_product_yes_no = input("Is there a new product? (y/n): ")
     # new_product_yes_no = "y"

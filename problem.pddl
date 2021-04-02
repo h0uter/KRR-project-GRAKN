@@ -27,6 +27,6 @@
     
     (:goal (and
 
-test 
+        (object-at aruco_cube_444 wp_cabinet_1) 
 )) 
 ) 
