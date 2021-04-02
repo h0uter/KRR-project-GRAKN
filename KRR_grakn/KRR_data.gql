@@ -1,0 +1,5 @@
+insert
+# PRODUCTS
+$prod-1 isa product, has name "kroket", has storage_type "freezer";
+$prod-2 isa product, has name "hagelslag", has storage_type "shelf";
+$prod-3 isa product, has name "brood", has storage_type "shelf";
