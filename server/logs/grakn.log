@@ -1,0 +1,150 @@
+2021-04-02 16:23:34,200 [main] [ERROR] grakn.core.server.GraknServer - [SRV18] Invalid Server Operation: Incompatible Java runtime version: '8'. Please use Java 11 or above.
+2021-04-02 16:40:08,057 [main] [ERROR] grakn.core.server.GraknServer - [SRV18] Invalid Server Operation: Incompatible Java runtime version: '8'. Please use Java 11 or above.
+2021-04-02 16:40:13,300 [main] [ERROR] grakn.core.server.GraknServer - [SRV18] Invalid Server Operation: Incompatible Java runtime version: '8'. Please use Java 11 or above.
+2021-04-02 16:40:36,113 [main] [INFO ] grakn.core.server.GraknServer - Grakn Core Server is now running and will keep this process alive.
+2021-04-02 16:40:36,123 [main] [INFO ] grakn.core.server.GraknServer - You can press CTRL+C to shutdown this server.
+2021-04-02 16:40:36,127 [main] [INFO ] grakn.core.server.GraknServer - 
+2021-04-02 16:40:36,128 [main] [INFO ] grakn.core.server.GraknServer - - version: 2.0.0
+2021-04-02 16:40:36,128 [main] [INFO ] grakn.core.server.GraknServer - - listening to port: 1729
+2021-04-02 16:40:36,128 [main] [INFO ] grakn.core.server.GraknServer - - data directory configured to: C:\LOCAL_Deckard\1_Projects\KRR-project\grakn-core-all-windows-2.0.0\server\data
+2021-04-02 16:40:36,130 [main] [INFO ] grakn.core.server.GraknServer - - bootup completed in: 3025 ms
+2021-04-02 16:40:36,130 [main] [INFO ] grakn.core.server.GraknServer - ...
+2021-04-02 16:42:52,418 [grakn-core-service::0] [ERROR] grakn.core.server.TransactionService - [TYR03] Invalid Type Read: The type 'storage-type' does not exist.
+grakn.core.common.exception.GraknException: [TYR03] Invalid Type Read: The type 'storage-type' does not exist.
+	at grakn.core.common.exception.GraknException.of(GraknException.java:55)
+	at grakn.core.query.Inserter$Operation.getThingType(Inserter.java:211)
+	at grakn.core.query.Inserter$Operation.insertIsa(Inserter.java:219)
+	at grakn.core.query.Inserter$Operation.insert(Inserter.java:186)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at java.base/java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1085)
+	at grakn.core.query.Inserter$Operation.execute(Inserter.java:157)
+	at grakn.core.query.Inserter.execute(Inserter.java:117)
+	at grakn.core.query.QueryManager.insert(QueryManager.java:129)
+	at grakn.core.server.query.QueryService.insert(QueryService.java:154)
+	at grakn.core.server.query.QueryService.execute(QueryService.java:92)
+	at grakn.core.server.TransactionService.executeRequest(TransactionService.java:159)
+	at grakn.core.server.TransactionService.execute(TransactionService.java:135)
+	at grakn.core.server.TransactionService.onNext(TransactionService.java:115)
+	at grakn.core.server.TransactionService.onNext(TransactionService.java:74)
+	at io.grpc.stub.ServerCalls$StreamingServerCallHandler$StreamingServerCallListener.onMessage(ServerCalls.java:255)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.messagesAvailableInternal(ServerCallImpl.java:309)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.messagesAvailable(ServerCallImpl.java:292)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1MessagesAvailable.runInContext(ServerImpl.java:782)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2021-04-02 17:04:53,100 [GraknServer::shutdown::0] [INFO ] grakn.core.server.GraknServer - 
+2021-04-02 17:04:53,102 [GraknServer::shutdown::0] [INFO ] grakn.core.server.GraknServer - Shutting down Grakn Core Server...
+2021-04-02 17:04:53,457 [GraknServer::shutdown::0] [INFO ] grakn.core.server.GraknServer - Grakn Core Server has been shutdown
+2021-04-02 17:06:27,040 [main] [INFO ] grakn.core.server.GraknServer - Grakn Core Server is now running and will keep this process alive.
+2021-04-02 17:06:27,047 [main] [INFO ] grakn.core.server.GraknServer - You can press CTRL+C to shutdown this server.
+2021-04-02 17:06:27,048 [main] [INFO ] grakn.core.server.GraknServer - 
+2021-04-02 17:06:27,049 [main] [INFO ] grakn.core.server.GraknServer - - version: 2.0.0
+2021-04-02 17:06:27,049 [main] [INFO ] grakn.core.server.GraknServer - - listening to port: 1729
+2021-04-02 17:06:27,050 [main] [INFO ] grakn.core.server.GraknServer - - data directory configured to: C:\LOCAL_Deckard\1_Projects\KRR-project\server\data
+2021-04-02 17:06:27,051 [main] [INFO ] grakn.core.server.GraknServer - - bootup completed in: 3951 ms
+2021-04-02 17:06:27,052 [main] [INFO ] grakn.core.server.GraknServer - ...
+2021-04-02 17:07:14,619 [grakn-core-service::0] [ERROR] grakn.core.server.TransactionService - [TXN06] Invalid Transaction Operation: Only write transactions can be committed.
+grakn.core.common.exception.GraknException: [TXN06] Invalid Transaction Operation: Only write transactions can be committed.
+	at grakn.core.common.exception.GraknException.of(GraknException.java:55)
+	at grakn.core.rocks.RocksTransaction$Data.commit(RocksTransaction.java:292)
+	at grakn.core.server.TransactionService.commit(TransactionService.java:209)
+	at grakn.core.server.TransactionService.executeRequest(TransactionService.java:153)
+	at grakn.core.server.TransactionService.execute(TransactionService.java:135)
+	at grakn.core.server.TransactionService.onNext(TransactionService.java:115)
+	at grakn.core.server.TransactionService.onNext(TransactionService.java:74)
+	at io.grpc.stub.ServerCalls$StreamingServerCallHandler$StreamingServerCallListener.onMessage(ServerCalls.java:255)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.messagesAvailableInternal(ServerCallImpl.java:309)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.messagesAvailable(ServerCallImpl.java:292)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1MessagesAvailable.runInContext(ServerImpl.java:782)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2021-04-02 17:19:54,905 [grakn-core-service::0] [ERROR] grakn.core.server.TransactionService - [GQL03] Graql Error: There is a syntax error at line 1:
+match $prod1 isa product, has name "kroket" offset 0; limit 30;
+                                            ^
+no viable alternative at input 'match $prod1 isa product, has name "kroket" offset'
+[GQL03] Graql Error: There is a syntax error at line 1:
+match $prod1 isa product, has name "kroket" offset 0; limit 30;
+                                            ^
+no viable alternative at input 'match $prod1 isa product, has name "kroket" offset'
+graql.lang.common.exception.GraqlException: [GQL03] Graql Error: There is a syntax error at line 1:
+match $prod1 isa product, has name "kroket" offset 0; limit 30;
+                                            ^
+no viable alternative at input 'match $prod1 isa product, has name "kroket" offset'
+[GQL03] Graql Error: There is a syntax error at line 1:
+match $prod1 isa product, has name "kroket" offset 0; limit 30;
+                                            ^
+no viable alternative at input 'match $prod1 isa product, has name "kroket" offset'
+	at graql.lang.common.exception.GraqlException.of(GraqlException.java:32)
+	at graql.lang.parser.Parser.parse(Parser.java:139)
+	at graql.lang.parser.Parser.parseQueryEOF(Parser.java:147)
+	at graql.lang.Graql.parseQuery(Graql.java:63)
+	at grakn.core.server.query.QueryService.match(QueryService.java:125)
+	at grakn.core.server.query.QueryService.execute(QueryService.java:80)
+	at grakn.core.server.TransactionService.executeRequest(TransactionService.java:159)
+	at grakn.core.server.TransactionService.execute(TransactionService.java:135)
+	at grakn.core.server.TransactionService.onNext(TransactionService.java:115)
+	at grakn.core.server.TransactionService.onNext(TransactionService.java:74)
+	at io.grpc.stub.ServerCalls$StreamingServerCallHandler$StreamingServerCallListener.onMessage(ServerCalls.java:255)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.messagesAvailableInternal(ServerCallImpl.java:309)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.messagesAvailable(ServerCallImpl.java:292)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1MessagesAvailable.runInContext(ServerImpl.java:782)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2021-04-02 17:20:55,599 [grakn-core-service::0] [ERROR] grakn.core.server.TransactionService - [QRY15] Invalid Query Pattern: The pattern '{{ $neighbour-relation ($target-entity-role:$target-entity); 
+$target-entity iid 0x966e80018000000000000000; }}' can never be satisfied the current schema, specifically due to '[{ $neighbour-relation ($target-entity-role:$target-entity); 
+$target-entity iid 0x966e80018000000000000000; }]'.
+grakn.core.common.exception.GraknException: [QRY15] Invalid Query Pattern: The pattern '{{ $neighbour-relation ($target-entity-role:$target-entity); 
+$target-entity iid 0x966e80018000000000000000; }}' can never be satisfied the current schema, specifically due to '[{ $neighbour-relation ($target-entity-role:$target-entity); 
+$target-entity iid 0x966e80018000000000000000; }]'.
+	at grakn.core.common.exception.GraknException.of(GraknException.java:55)
+	at grakn.core.reasoner.Reasoner.execute(Reasoner.java:115)
+	at grakn.core.query.Matcher.execute(Matcher.java:125)
+	at grakn.core.query.Matcher.execute(Matcher.java:121)
+	at grakn.core.query.QueryManager.match(QueryManager.java:75)
+	at grakn.core.server.query.QueryService.match(QueryService.java:127)
+	at grakn.core.server.query.QueryService.execute(QueryService.java:80)
+	at grakn.core.server.TransactionService.executeRequest(TransactionService.java:159)
+	at grakn.core.server.TransactionService.execute(TransactionService.java:135)
+	at grakn.core.server.TransactionService.onNext(TransactionService.java:115)
+	at grakn.core.server.TransactionService.onNext(TransactionService.java:74)
+	at io.grpc.stub.ServerCalls$StreamingServerCallHandler$StreamingServerCallListener.onMessage(ServerCalls.java:255)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.messagesAvailableInternal(ServerCallImpl.java:309)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.messagesAvailable(ServerCallImpl.java:292)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1MessagesAvailable.runInContext(ServerImpl.java:782)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2021-04-02 18:44:31,944 [GraknServer::shutdown::0] [INFO ] grakn.core.server.GraknServer - 
+2021-04-02 18:44:31,949 [GraknServer::shutdown::0] [INFO ] grakn.core.server.GraknServer - Shutting down Grakn Core Server...
+2021-04-02 18:44:31,954 [GraknServer::shutdown::0] [ERROR] grakn.core.server.TransactionService - [SRV09] Invalid Server Operation: Grakn Core server has been shutdown.
+grakn.core.common.exception.GraknException: [SRV09] Invalid Server Operation: Grakn Core server has been shutdown.
+	at grakn.core.common.exception.GraknException.of(GraknException.java:55)
+	at grakn.core.server.GraknService.lambda$close$1(GraknService.java:215)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.concurrent.ConcurrentHashMap$ValueSpliterator.forEachRemaining(ConcurrentHashMap.java:3605)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.ForEachOps$ForEachTask.compute(ForEachOps.java:290)
+	at java.base/java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:746)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinTask.doInvoke(ForkJoinTask.java:408)
+	at java.base/java.util.concurrent.ForkJoinTask.invoke(ForkJoinTask.java:736)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateParallel(ForEachOps.java:159)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateParallel(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:233)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:661)
+	at grakn.core.server.GraknService.close(GraknService.java:215)
+	at grakn.core.server.GraknServer.close(GraknServer.java:204)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2021-04-02 18:44:32,398 [GraknServer::shutdown::0] [INFO ] grakn.core.server.GraknServer - Grakn Core Server has been shutdown
