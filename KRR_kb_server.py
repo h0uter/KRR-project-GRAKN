@@ -15,14 +15,19 @@ with Grakn.core_client("localhost:1729") as client:
 
         ## Read the person using a READ only transaction
         with session.transaction(TransactionType.READ) as read_transaction:
+
+            # ask user input    
+            product_name = input("Enter the product name (brood, kroket, hagelslag): ")
+
             answer_iterator = read_transaction.query().match(
-                "match $prod1 isa product, has name 'kroket', has storage_type $st; get $st;")
+                f"match $prod1 isa product, has name '{product_name}', has storage_type $st; get $st;")
+
 
             for answer in answer_iterator:
                 print(answer)
                 product = answer.get("st")
-                print(product)
-                print("Retrieved product storage loc " + product.get_value())
+                # print(product.get_value())
+                print("Retrieved product storage loc: " + product.get_value())
 
         # ## Or query and consume the iterator immediately collecting all the results
         # with session.transaction(TransactionType.READ) as read_transaction:

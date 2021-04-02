@@ -68,7 +68,7 @@
   manifest_preallocation_size=4194304
   write_thread_slow_yield_usec=3
   unordered_write=true
-  wal_dir=C\:\\LOCAL_Deckard\\1_Projects\\KRR-project\\grakn-core-all-windows-2.0.0\\server\\data\\KRR\\data
+  wal_dir=C\:\\LOCAL_Deckard\\1_Projects\\KRR-project\\server\\data\\KRR\\data
   WAL_size_limit_MB=0
   persist_stats_to_disk=false
   allow_concurrent_memtable_write=true

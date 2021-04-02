@@ -148,3 +148,14 @@ grakn.core.common.exception.GraknException: [SRV09] Invalid Server Operation: Gr
 	at grakn.core.server.GraknServer.close(GraknServer.java:204)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 2021-04-02 18:44:32,398 [GraknServer::shutdown::0] [INFO ] grakn.core.server.GraknServer - Grakn Core Server has been shutdown
+2021-04-02 18:50:39,339 [main] [INFO ] grakn.core.server.GraknServer - Grakn Core Server is now running and will keep this process alive.
+2021-04-02 18:50:39,342 [main] [INFO ] grakn.core.server.GraknServer - You can press CTRL+C to shutdown this server.
+2021-04-02 18:50:39,344 [main] [INFO ] grakn.core.server.GraknServer - 
+2021-04-02 18:50:39,345 [main] [INFO ] grakn.core.server.GraknServer - - version: 2.0.0
+2021-04-02 18:50:39,352 [main] [INFO ] grakn.core.server.GraknServer - - listening to port: 1729
+2021-04-02 18:50:39,353 [main] [INFO ] grakn.core.server.GraknServer - - data directory configured to: C:\LOCAL_Deckard\1_Projects\KRR-project\server\data
+2021-04-02 18:50:39,355 [main] [INFO ] grakn.core.server.GraknServer - - bootup completed in: 2510 ms
+2021-04-02 18:50:39,356 [main] [INFO ] grakn.core.server.GraknServer - ...
+2021-04-02 18:59:20,654 [GraknServer::shutdown::0] [INFO ] grakn.core.server.GraknServer - 
+2021-04-02 18:59:20,656 [GraknServer::shutdown::0] [INFO ] grakn.core.server.GraknServer - Shutting down Grakn Core Server...
+2021-04-02 18:59:20,845 [GraknServer::shutdown::0] [INFO ] grakn.core.server.GraknServer - Grakn Core Server has been shutdown
