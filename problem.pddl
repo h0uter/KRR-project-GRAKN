@@ -27,6 +27,6 @@
     
     (:goal (and
 
-        (object-at aruco_cube_444 wp_cabinet_1) 
+		(object-at aruco_cube_444 wp_cabinet_2) 
 )) 
 ) 

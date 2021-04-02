@@ -1,5 +1,6 @@
 from grakn.client import *
 
+from PDDL_writer_test import generate_pddl
 
 def write_to_KB(product_name, storage_type):
     with Grakn.core_client("localhost:1729") as client:
@@ -31,6 +32,7 @@ def read_from_KB(product_name):
                     product = answer.get("st")
                     # print(product.get_value())
                     print(product_name, "is stored in/on the: " + product.get_value())
+                    return product.get_value()
 
 
 def read_all_from_KB():
@@ -75,4 +77,7 @@ if __name__ == "__main__":
     product_name = input("Which product do you want to know it's storage location of: ")
     # product_name = 'hagelslag'
 
-    read_from_KB(product_name)
+    storage_location = read_from_KB(product_name)
+
+
+    generate_pddl(product_name, storage_location)
