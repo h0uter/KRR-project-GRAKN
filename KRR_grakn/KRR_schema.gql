@@ -3,11 +3,13 @@ define
 storage_type sub attribute, value string;
 name sub attribute, value string;
 physical_state sub attribute, value string;
+product_type sub attribute, value string;
 
 product sub entity,
     owns storage_type,
     owns name,
-    owns physical_state;
+    owns physical_state,
+    owns product_type;
   
 
 # drink_never_in_freezer sub rule,

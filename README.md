@@ -1,12 +1,12 @@
-KRR-project
+# KRR-project
 
-# requirements
+## requirements
 - tested on python 3.7.6
   - grakn-client (`pip3 install grakn-client`)
 - Java Runtime Environment 11 required for GRAKN server and console
 - GRAKN 2.0 -> unzipped in the root of this repo
 
-# how to run
+## How to run
 to start the grakn server run `./grakn server` from the root
 
 to setup the knowledge base start the grakn console with `./grakn console` and run the following commmands:
@@ -34,7 +34,7 @@ commit
 
 Now we can run the python file `KRR_kb_interface.py` to input a new product or select a product and generate pddl code base based on it.
 
-# info
+## info
 the data aka instances are contained in `KRR_data.gql`
 
 the ontology is contained in `KRR_schema.gql`

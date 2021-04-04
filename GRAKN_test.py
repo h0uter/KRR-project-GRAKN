@@ -31,11 +31,11 @@ if __name__ == "__main__":
 
 
   with Grakn.core_client("localhost:1729") as client:
-    with client.session("KRR", SessionType.DATA) as session:
+    with client.session("KRR", SessionType.DATA, opt) as session:
 
       ## Read the person using a READ only transaction
       # with session.transaction(TransactionType.READ, GraknOptions.core({"infer": True, "explain": True})) as read_transaction:
-      with session.transaction(TransactionType.READ, opt) as read_transaction:
+      with session.transaction(TransactionType.READ) as read_transaction:
 
         # answer_iterator = read_transaction.logic().getRule(String "drink-never-in-freezer")
         # print(read_transaction.as_remote(read_transaction))

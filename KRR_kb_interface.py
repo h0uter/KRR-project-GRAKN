@@ -18,8 +18,12 @@ def write_to_KB(product_name, storage_type):
                 write_transaction.commit()
 
 def read_from_KB(product_name):
+
+    opt = GraknOptions.core()
+    opt.infer = True
+
     with Grakn.core_client("localhost:1729") as client:
-        with client.session("KRR", SessionType.DATA) as session:
+        with client.session("KRR", SessionType.DATA, opt) as session:
 
             ## Read the person using a READ only transaction
             with session.transaction(TransactionType.READ) as read_transaction:
