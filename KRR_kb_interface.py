@@ -73,16 +73,17 @@ if __name__ == "__main__":
 
     # TODO: print all objects in the database
     # product_name = input("Enter the product name (brood, kroket, hagelslag): ")
-    iterations = input("how many items are in the simulation?:")
+    iterations = input("how many items are in the simulation? (int) :")
     product_names = []
     simulation_names = []
     storage_locations = []
-    for i in range(iterations):
+    for i in range(int(iterations)):
+    	print("for product", (i + 1),":")
     	product_name = input("What is the name of the product: ")
-	storage_locations.append(read_from_KB(product_name))
-	simulation_name = input("What is the name of the simulated item (e.g. aruco_cube_[number]):")
-	product_names.append(product_name)
-	simulation_names.append(simulation_name)
+    	storage_locations.append(read_from_KB(product_name))
+    	simulation_name = input("What is the name of the simulated item (e.g. aruco_cube_[number]):")
+    	product_names.append(product_name)
+    	simulation_names.append(simulation_name)
     # product_name = 'hagelslag'
 
     

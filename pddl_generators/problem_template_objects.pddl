@@ -10,6 +10,5 @@
 		wp_cabinet_1 - waypoint
 		wp_cabinet_2 - waypoint
                 wp0 - waypoint
-                aruco_cube_582 - object
 
 
