@@ -4,3 +4,7 @@ console/
 server/
 
 __pycache__/
+
+grakn.bat
+
+LICENSE
