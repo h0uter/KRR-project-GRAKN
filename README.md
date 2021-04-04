@@ -7,11 +7,33 @@ tested on python 3.7.6
 # how to run
 to start the grakn server run `./grakn server` from the root
 
-run the python file `KRR_kb_interface.py` to input a new product or select a product and generate pddl code base based on it.
+to setup the knowledge base start the grakn console and run the following commmands.
+
+TO CREATE DATABASE
+`database create KRR`
+
+
+TO WRITE SCHEMA
+```
+transaction KRR schema write
+source KRR_grakn/KRR_schema.gql
+commit
+```
+
+TO LOAD DATASET
+```
+transaction KRR data write
+source KRR_grakn/KRR_data.gql
+commit
+```
+
+
+
+Now we can run the python file `KRR_kb_interface.py` to input a new product or select a product and generate pddl code base based on it.
 
 # info
-the data aka instances are contained in `KRR_data.py`
+the data aka instances are contained in `KRR_data.gql`
 
-the ontology is contained in `KRR_schema.py`
+the ontology is contained in `KRR_schema.gql`
 
  
