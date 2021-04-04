@@ -19,6 +19,7 @@ def write_to_KB(product_name, storage_type):
 
 def read_from_KB(product_name):
 
+    # option to enable inferrence
     opt = GraknOptions.core()
     opt.infer = True
 

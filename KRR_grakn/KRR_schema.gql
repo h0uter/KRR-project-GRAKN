@@ -1,27 +1,83 @@
 define
 
+# ATTRIBUTES
 storage_type sub attribute, value string;
 name sub attribute, value string;
 physical_state sub attribute, value string;
 product_type sub attribute, value string;
 
-product sub entity,
+
+# ENTITIES
+can_move sub entity,
+  plays located_at:what;
+ 
+product sub can_move,
+    plays destination_at:what,
     owns storage_type,
     owns name,
     owns physical_state,
     owns product_type;
   
+freezer_goods sub product;
+fresh_goods sub product;
+shelf_goods sub product;
 
-# drink_never_in_freezer sub rule,
-#     when {
-#       $prod isa product, has physical_state "liquid";
-#     }, then {
-#       $prod has storage_type "shelf" ;
-#     };
 
+can_not_move sub entity;
+location sub can_not_move,
+  owns name,
+  plays located_at:where,
+  plays destination_at:where;
+
+freezer sub location;
+packing_station sub location;
+shelf sub location;
+loading_table sub location;
+
+
+# RULES
 rule drink_never_in_freezer:
   when {
     $prod isa product, has physical_state "liquid";
   } then {
     $prod has storage_type "shelf" ;
   };
+
+# rule normal_products_on_shelf:
+#   when {
+#     $prod isa product, has product_type "normal"
+#   };
+
+
+# RELATIONS
+located_at sub relation,
+  relates where,
+  relates what;
+
+destination_at sub relation,
+  relates where,
+  relates what;
+
+
+############################################################### old
+
+# storage_type sub attribute, value string;
+# name sub attribute, value string;
+# physical_state sub attribute, value string;
+# product_type sub attribute, value string;
+
+# product sub entity,
+#     owns storage_type,
+#     owns name,
+#     owns physical_state,
+#     owns product_type;
+  
+
+
+
+# rule drink_never_in_freezer:
+#   when {
+#     $prod isa product, has physical_state "liquid";
+#   } then {
+#     $prod has storage_type "shelf" ;
+#   };

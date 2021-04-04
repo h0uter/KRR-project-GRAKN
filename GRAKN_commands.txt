@@ -1,5 +1,4 @@
 
-WRITE SCHEMA
 database delete KRR
 database create KRR
 transaction KRR schema write
