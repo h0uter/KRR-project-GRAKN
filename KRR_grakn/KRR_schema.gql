@@ -1,11 +1,23 @@
 define
 
-product sub entity,
-    owns storage_type,
-    owns name;
-  
-  storage_type sub attribute,
+  product sub entity,
+      owns storage_type,
+      owns name,
+      # owns preprocessing;
+      owns physical_state;
+    
+    storage_type sub attribute,
+        value string;
+        
+    name sub attribute,
       value string;
-      
-  name sub attribute,
-    value string;
+
+    physical_state sub attribute,
+      value string;
+
+  rule drink-never-in-freezer:
+    when {
+      $prod isa product, has physical_state "liquid";
+    } then {
+      $prod has storage_type "shelf" ;
+    };

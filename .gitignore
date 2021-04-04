@@ -1,2 +1,6 @@
 cmd.exe.lnk
 
+
+server/
+
+__pycache__/

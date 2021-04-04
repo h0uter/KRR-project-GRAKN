@@ -33,7 +33,7 @@ def generate_pddl(product_name, storage_location):
 
     f = open("problem.pddl", "a")
 
-
+    # TODO: ook initial conditions schrijven
 
     line1 = f"\t\t(object-at {product_to_cube_converter[product_name]} {storage_location_converter[storage_location]}) \n"
     print(line1)
