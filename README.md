@@ -2,8 +2,9 @@ KRR-project
 
 # requirements
 - tested on python 3.7.6
+  - grakn-client (`pip3 install grakn-client`)
 - Java Runtime Environment 11 required for GRAKN server and console
-- GRAKN 2.0 
+- GRAKN 2.0 -> unzipped in the root of this repo
 
 # how to run
 to start the grakn server run `./grakn server` from the root
