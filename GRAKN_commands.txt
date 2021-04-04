@@ -1,11 +1,10 @@
 
 WRITE SCHEMA
+database delete KRR
+database create KRR
 transaction KRR schema write
 source KRR_grakn/KRR_schema.gql
 commit
-
-
-LOAD DATASET
 transaction KRR data write
 source KRR_grakn/KRR_data.gql
 commit
@@ -18,3 +17,8 @@ match $prod isa product, has name "fanta", has storage_type $stt; get $stt;
 
 
 insert $prod isa product, has name "fanta", has physical_state "liquid";
+
+
+
+transaction KRR data read
+match $prod isa product, has name "cola", has storage_type $stt; get $stt;

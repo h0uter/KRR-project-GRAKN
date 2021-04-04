@@ -1,18 +1,19 @@
 KRR-project
 
 # requirements
-tested on python 3.7.6
-Java Runtime Environment 11 required 
-
+- tested on python 3.7.6
+- Java Runtime Environment 11 required for GRAKN server and console
+- GRAKN 2.0 
 
 # how to run
 to start the grakn server run `./grakn server` from the root
 
-to setup the knowledge base start the grakn console and run the following commmands.
+to setup the knowledge base start the grakn console with `./grakn console` and run the following commmands:
 
 TO CREATE DATABASE
-`database create KRR`
-
+```
+database create KRR
+```
 
 TO WRITE SCHEMA
 ```
@@ -21,7 +22,7 @@ source KRR_grakn/KRR_schema.gql
 commit
 ```
 
-TO LOAD DATASET
+TO LOAD DATASET 
 ```
 transaction KRR data write
 source KRR_grakn/KRR_data.gql

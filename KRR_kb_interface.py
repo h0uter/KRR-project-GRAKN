@@ -7,7 +7,7 @@ def write_to_KB(product_name, storage_type):
         with client.session("KRR", SessionType.DATA) as session:
 
             ## Insert a Person using a WRITE transaction
-            with session.transaction(TransactionTypyee.WRITE) as write_transaction:
+            with session.transaction(TransactionType.WRITE) as write_transaction:
                 insert_iterator = write_transaction.query().insert(
                     f'insert $prod isa product, has name "{product_name}", has storage_type "{storage_type}";')
                 concepts = [ans.get("prod") for ans in insert_iterator]
