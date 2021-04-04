@@ -1,6 +1,6 @@
 from grakn.client import *
 
-from PDDL_writer_test import generate_pddl
+from PDDL_writer_test import *
 
 def write_to_KB(product_name, storage_type):
     with Grakn.core_client("localhost:1729") as client:
@@ -24,8 +24,7 @@ def read_from_KB(product_name):
             ## Read the person using a READ only transaction
             with session.transaction(TransactionType.READ) as read_transaction:
 
-                answer_iterator = read_transaction.query().match(
-                    f"match $prod1 isa product, has name '{product_name}', has storage_type $st; get $st;")
+                answer_iterator = read_transaction.query().match(f"match $prod1 isa product, has name '{product_name}', has storage_type $st; get $st;")
 
                 for answer in answer_iterator:
                     # print(answer)
@@ -74,10 +73,19 @@ if __name__ == "__main__":
 
     # TODO: print all objects in the database
     # product_name = input("Enter the product name (brood, kroket, hagelslag): ")
-    product_name = input("Which product do you want to know it's storage location of: ")
+    iterations = input("how many items are in the simulation?:")
+    product_names = []
+    simulation_names = []
+    storage_locations = []
+    for i in range(iterations):
+    	product_name = input("What is the name of the product: ")
+	storage_locations.append(read_from_KB(product_name))
+	simulation_name = input("What is the name of the simulated item (e.g. aruco_cube_[number]):")
+	product_names.append(product_name)
+	simulation_names.append(simulation_name)
     # product_name = 'hagelslag'
 
-    storage_location = read_from_KB(product_name)
+    
 
 
-    generate_pddl(product_name, storage_location)
+    generate_pddl(product_names, simulation_names, storage_locations)
