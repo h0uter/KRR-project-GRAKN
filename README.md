@@ -2,6 +2,7 @@ KRR-project
 
 # requirements
 tested on python 3.7.6
+Java Runtime Environment 11 required 
 
 
 # how to run
