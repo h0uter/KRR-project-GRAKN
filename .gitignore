@@ -1,6 +1,6 @@
 cmd.exe.lnk
 
-
+console/
 server/
 
 __pycache__/
