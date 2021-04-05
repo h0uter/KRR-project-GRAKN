@@ -87,18 +87,18 @@ if __name__ == "__main__":
     storage_locations = []
     packaging_bools = []
     for i in range(int(iterations)):
-    	print("for product", (i + 1),":")
-    	product_name = input("What is the name of the product: ")
+        print("for product", (i + 1),":")
+        product_name = input("What is the name of the product: ")
 
         # VAN READ KB KRIJG JE NU DUS 2 DINGEN TERUG: storage_type en needs_packaging
         storage_type, needs_packaging = read_from_KB(product_name)
-    	storage_locations.append(storage_type)
+        storage_locations.append(storage_type)
         packaging_bools.append(needs_packaging)
     	        
         
         simulation_name = input("What is the name of the simulated item (e.g. aruco_cube_[number]):")
-    	product_names.append(product_name)
-    	simulation_names.append(simulation_name)
+        product_names.append(product_name)
+        simulation_names.append(simulation_name)
     # product_name = 'hagelslag'
 
     

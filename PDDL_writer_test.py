@@ -12,7 +12,7 @@ def generate_pddl_obj(product_name):
 
     f.close()
 
-    f = open("problem.pddl", "w")
+    f = open("../retail_store_planning/pddl_files/problem_pick_place.pddl", "w")
 
     f.write(text_to_add)
     line_to_add = []
@@ -30,7 +30,7 @@ def generate_pddl_init(product_name):
 
     f.close()
 
-    f = open("problem.pddl", "a")
+    f = open("../retail_store_planning/pddl_files/problem_pick_place.pddl", "a")
 
     f.write(text_to_add)
     line_to_add = []
@@ -48,11 +48,11 @@ def generate_pddl_goal(product_name, storage_location, packaging_bools):
 
     f.close()
 
-    f = open("problem.pddl", "a")
+    f = open("../retail_store_planning/pddl_files/problem_pick_place.pddl", "a")
     f.write(text_to_add)
     line_to_add = []
     for i in range(len(product_name)):
-    	line_to_add.append(f"\t\t(object-at {product_name[i]} {storage_location[i]}) \n")
+        line_to_add.append(f"\t\t(object-at {product_name[i]} {storage_location[i]}) \n")
         if (packaging_bools[i]== True):
             line_to_add.append(
                 f"\t\t(packaged-at {product_name[i]} wp_table_2) \n")
@@ -67,10 +67,7 @@ def generate_pddl(product_name, simulation_name, storage_location,packaging_bool
     storage_location_converter = {
         "freezer": "wp_cabinet_1",
         "shelf": "wp_cabinet_2"
-        }
-    # freezer -> wp_cabinet_1 | shelf -> wp_cabinet_2
-    
-    # maybe usefull for later when adding more than one product.
+        }#problem.pddl
     #product_to_cube_converter = dict()
     # product_to_cube_converter[product_name] = "aruco_cube_444"
     storage_locations = []
