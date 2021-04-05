@@ -3,8 +3,9 @@ define
 # ATTRIBUTES
 storage_type sub attribute, value string;
 name sub attribute, value string;
-physical_state sub attribute, value string;
+# physical_state sub attribute, value string;
 product_type sub attribute, value string;
+needs_packaging sub attribute, value boolean;
 
 
 # ENTITIES
@@ -15,8 +16,9 @@ product sub can_move,
     plays destination_at:what,
     owns storage_type,
     owns name,
-    owns physical_state,
-    owns product_type;
+    owns needs_packaging;
+    # owns physical_state,
+    # owns product_type;
   
 freezer_goods sub product;
 fresh_goods sub product;
@@ -36,17 +38,44 @@ loading_table sub location;
 
 
 # RULES
-rule drink_never_in_freezer:
+rule shelf_goods_on_shelf:
   when {
-    $prod isa product, has physical_state "liquid";
+    $prod isa shelf_goods;
   } then {
-    $prod has storage_type "shelf" ;
+    $prod has storage_type "shelf";
+  };
+rule shelf_goods_dont_need_packaging:
+when {
+  $prod isa shelf_goods;
+} then {
+  $prod has needs_packaging false;
+};
+
+rule fresh_goods_on_shelf:
+  when {
+    $prod isa fresh_goods;
+  } then {
+    $prod has storage_type "shelf";
+  };
+rule fresh_goods_need_packaging:
+  when {
+    $prod isa fresh_goods;
+  } then {
+    $prod has needs_packaging true;
   };
 
-# rule normal_products_on_shelf:
-#   when {
-#     $prod isa product, has product_type "normal"
-#   };
+rule freezer_goods_in_freezer:
+  when {
+    $prod isa freezer_goods;
+  } then {
+    $prod has storage_type "freezer";
+  };
+rule freezer_goods_dont_need_packaging:
+  when {
+    $prod isa freezer_goods;
+  } then {
+    $prod has needs_packaging false;
+  };
 
 
 # RELATIONS

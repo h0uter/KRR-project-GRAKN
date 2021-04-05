@@ -12,24 +12,20 @@
                 wp0 - waypoint
 
 
-		 aruco_cube_444 - object 
+		 444 - object 
 
     )
     (:init
-        (=(efficiency)0)
-        (=(object_function)2)
         (robot-at tiago wp0)
-        (requires-packaging aruco_cube_582)
         (free rightgrip)
         (can_move tiago)
 
-		(object-at aruco_cube_444 wp_table_1) 
-		(active aruco_cube_444 wp_table_1) 
+		(object-at 444 wp_table_1) 
 
     )
     (:goal (and
   
 
-		(object-at aruco_cube_444 wp_cabinet_2) 
+		(object-at 444 wp_cabinet_1) 
 )) 
 ) 

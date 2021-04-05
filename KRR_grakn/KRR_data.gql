@@ -1,9 +1,16 @@
 insert
 # PRODUCTS
-$prod-1 isa product, has name "kroket1", has storage_type "freezer";
-$prod-2 isa product, has name "hagelslag1", has storage_type "shelf";
-$prod-3 isa product, has name "brood1", has storage_type "shelf";
-$prod-4 isa product, has name "cola1", has physical_state "liquid";
+$prod-1 isa freezer_goods, has name "kroket1";
+$prod-2 isa shelf_goods, has name "hagelslag1";
+$prod-3 isa fresh_goods, has name "brood1";
+
+
+
+# $prod-4 isa product, has name "cola1", has physical_state "liquid";
+# $prod-1 isa freezer, has name "kroket1", has storage_type "freezer";
+# $prod-2 isa product, has name "hagelslag1", has storage_type "shelf";
+# $prod-3 isa product, has name "brood1", has storage_type "shelf";
+# $prod-4 isa product, has name "cola1", has physical_state "liquid";
 
 $loc-1 isa loading_table, has name "loading_table1";
 

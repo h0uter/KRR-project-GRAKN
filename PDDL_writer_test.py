@@ -78,6 +78,7 @@ def generate_pddl(product_name, simulation_name, storage_location):
     generate_pddl_init(simulation_name)
     generate_pddl_goal(simulation_name, storage_locations)
     
+    print("PDDL code succesfully generated, you can now launch the simulation")
 
     # FILE HANDLING
     #f = open("problem_template.pddl", "r")

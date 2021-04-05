@@ -2,14 +2,14 @@ from grakn.client import *
 
 from PDDL_writer_test import *
 
-def write_to_KB(product_name, storage_type):
+def write_to_KB(product_name, product_type):
     with Grakn.core_client("localhost:1729") as client:
         with client.session("KRR", SessionType.DATA) as session:
 
             ## Insert a Person using a WRITE transaction
             with session.transaction(TransactionType.WRITE) as write_transaction:
                 insert_iterator = write_transaction.query().insert(
-                    f'insert $prod isa product, has name "{product_name}", has storage_type "{storage_type}";')
+                    f'insert $prod isa {product_type}, has name "{product_name}";')
                 concepts = [ans.get("prod") for ans in insert_iterator]
                 # print("Inserted a product with name: {0}, and storage type: {1}".format(
                 #     concepts[0].get_value(), concepts[0].get("st")))
@@ -29,17 +29,18 @@ def read_from_KB(product_name):
             ## Read the person using a READ only transaction
             with session.transaction(TransactionType.READ) as read_transaction:
 
-                answer_iterator = read_transaction.query().match(f"match $prod1 isa product, has name '{product_name}', has storage_type $st; get $st;")
+                answer_iterator = read_transaction.query().match(f"match $prod1 isa product, has name '{product_name}', has storage_type $st, has needs_packaging $np; get $st, $np;")
 
                 for answer in answer_iterator:
                     # print(answer)
-                    product = answer.get("st")
+                    storage_type = answer.get("st")
+                    needs_packaging = answer.get("np")
                     # print(product.get_value())
-                    print(product_name, "is stored in/on the: " + product.get_value())
-                    return product.get_value()
+                    print(product_name, "is stored in/on the: ",  storage_type.get_value(), "| needs_packaging?: ", needs_packaging.get_value())
+                    return storage_type.get_value(), needs_packaging.get_value()
 
 
-def read_all_from_KB():
+def read_all_products_in_KB():
     with Grakn.core_client("localhost:1729") as client:
         with client.session("KRR", SessionType.DATA) as session:
 
@@ -60,7 +61,7 @@ if __name__ == "__main__":
 
     # list all products in the KB
     print("All the products currently in the knowledgebase are:")
-    read_all_from_KB()
+    read_all_products_in_KB()
 
     # ask user input
     new_product_yes_no = input("Do you want to add a new product? (y/n): ")
@@ -69,11 +70,14 @@ if __name__ == "__main__":
     if new_product_yes_no == "y":
         new_product_name = input("What is the name of the new product: ")
         # new_product_name = "kip"
-        new_product_storage_type = input(
-            "What is the storage type of the new product? (shelf/freezer): ")
+        # new_product_storage_type = input(
+        #     "What is the storage type of the new product? (shelf/freezer): ")
+        new_product_type = input(
+            "What is the storage type of the new product? (shelf_goods/freezer_goods/fresh_goods): ")
         # new_product_storage_type = "freezer"
 
-        write_to_KB(new_product_name, new_product_storage_type)
+        # write_to_KB(new_product_name, new_product_storage_type)
+        write_to_KB(new_product_name, new_product_type)
 
 
     # TODO: print all objects in the database
@@ -85,8 +89,13 @@ if __name__ == "__main__":
     for i in range(int(iterations)):
     	print("for product", (i + 1),":")
     	product_name = input("What is the name of the product: ")
+
+        # VAN READ KB KRIJG JE NU DUS 2 DINGEN TERUG: storage_type en needs_packaging
     	storage_locations.append(read_from_KB(product_name))
-    	simulation_name = input("What is the name of the simulated item (e.g. aruco_cube_[number]):")
+
+    	        
+        
+        simulation_name = input("What is the name of the simulated item (e.g. aruco_cube_[number]):")
     	product_names.append(product_name)
     	simulation_names.append(simulation_name)
     # product_name = 'hagelslag'
