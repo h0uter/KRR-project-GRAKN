@@ -41,7 +41,7 @@ def generate_pddl_init(product_name):
     f.close()    
 
 
-def generate_pddl_goal(product_name, storage_location):
+def generate_pddl_goal(product_name, storage_location, packaging_bools):
     f = open("pddl_generators/problem_template_goal.pddl", "r")
 
     text_to_add = f.read()
@@ -53,13 +53,16 @@ def generate_pddl_goal(product_name, storage_location):
     line_to_add = []
     for i in range(len(product_name)):
     	line_to_add.append(f"\t\t(object-at {product_name[i]} {storage_location[i]}) \n")
+        if (packaging_bools[i]== True):
+            line_to_add.append(
+                f"\t\t(packaged-at {product_name[i]} wp_table_2) \n")
     line_to_add.append(")) \n")
     line_to_add.append(") \n")
     for i in range(len(line_to_add)):
         f.write(line_to_add[i])
     f.close()  
 
-def generate_pddl(product_name, simulation_name, storage_location):
+def generate_pddl(product_name, simulation_name, storage_location,packaging_bools):
     # CONVERT PRODUCT TO ITEMS IN THE SIMULATION
     storage_location_converter = {
         "freezer": "wp_cabinet_1",
@@ -76,7 +79,7 @@ def generate_pddl(product_name, simulation_name, storage_location):
     
     generate_pddl_obj(simulation_name)
     generate_pddl_init(simulation_name)
-    generate_pddl_goal(simulation_name, storage_locations)
+    generate_pddl_goal(simulation_name, storage_locations,packaging_bools)
     
     print("PDDL code succesfully generated, you can now launch the simulation")
 

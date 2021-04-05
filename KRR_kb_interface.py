@@ -73,26 +73,27 @@ if __name__ == "__main__":
         # new_product_storage_type = input(
         #     "What is the storage type of the new product? (shelf/freezer): ")
         new_product_type = input(
-            "What is the storage type of the new product? (shelf_goods/freezer_goods/fresh_goods): ")
+            "What is the product group of the new product? (shelf_goods/freezer_goods/fresh_goods): ")
         # new_product_storage_type = "freezer"
 
         # write_to_KB(new_product_name, new_product_storage_type)
         write_to_KB(new_product_name, new_product_type)
 
 
-    # TODO: print all objects in the database
     # product_name = input("Enter the product name (brood, kroket, hagelslag): ")
     iterations = input("how many items are in the simulation? (int) :")
     product_names = []
     simulation_names = []
     storage_locations = []
+    packaging_bools = []
     for i in range(int(iterations)):
     	print("for product", (i + 1),":")
     	product_name = input("What is the name of the product: ")
 
         # VAN READ KB KRIJG JE NU DUS 2 DINGEN TERUG: storage_type en needs_packaging
-    	storage_locations.append(read_from_KB(product_name))
-
+        storage_type, needs_packaging = read_from_KB(product_name)
+    	storage_locations.append(storage_type)
+        packaging_bools.append(needs_packaging)
     	        
         
         simulation_name = input("What is the name of the simulated item (e.g. aruco_cube_[number]):")
@@ -103,4 +104,4 @@ if __name__ == "__main__":
     
 
 
-    generate_pddl(product_names, simulation_names, storage_locations)
+    generate_pddl(product_names, simulation_names, storage_locations, packaging_bools)
