@@ -73,7 +73,7 @@ if __name__ == "__main__":
         # new_product_storage_type = input(
         #     "What is the storage type of the new product? (shelf/freezer): ")
         new_product_type = input(
-            "What is the product group of the new product? (shelf_goods/freezer_goods/fresh_goods): ")
+            "What is the product group of the new product? (regular_product/freezer_product/fresh_product): ")
         # new_product_storage_type = "freezer"
 
         # write_to_KB(new_product_name, new_product_storage_type)

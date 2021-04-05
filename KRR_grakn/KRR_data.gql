@@ -1,21 +1,19 @@
 insert
 # PRODUCTS
-$prod-1 isa freezer_goods, has name "kroket1";
-$prod-2 isa shelf_goods, has name "hagelslag1";
-$prod-3 isa fresh_goods, has name "brood1";
+$prod-1 isa freezer_product, has name "kroket1";
+$prod-2 isa regular_product, has name "hagelslag1";
+$prod-3 isa fresh_product, has name "brood1";
 
-
-
-# $prod-4 isa product, has name "cola1", has physical_state "liquid";
-# $prod-1 isa freezer, has name "kroket1", has storage_type "freezer";
-# $prod-2 isa product, has name "hagelslag1", has storage_type "shelf";
-# $prod-3 isa product, has name "brood1", has storage_type "shelf";
-# $prod-4 isa product, has name "cola1", has physical_state "liquid";
-
+# LOCATIONS
 $loc-1 isa loading_table, has name "loading_table1";
+$loc-2 isa packing_station, has name "packing_station1";
+$loc-3 isa freezer, has name "freezer1";
+$loc-4 isa shelf, has name "shelf1";
 
-$dest-1 isa freezer, has name "freezer1";
+# RELATIONS
+$new_located_at-1 (where: $loc-1, what: $prod-1) isa located_at;
+$new_located_at-2 (where: $loc-1, what: $prod-2) isa located_at;
+$new_located_at-3 (where: $loc-1, what: $prod-3) isa located_at;
 
-$new_located_at (where: $loc-1, what: $prod-1) isa located_at;
 
-$new_destination_at (where: $dest-1, what: $prod-1) isa destination_at;
+# $new_destination_at (where: $loc-3, what: $prod-1) isa destination_at;

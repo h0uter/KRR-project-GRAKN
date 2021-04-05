@@ -4,7 +4,7 @@ define
 storage_type sub attribute, value string;
 name sub attribute, value string;
 # physical_state sub attribute, value string;
-product_type sub attribute, value string;
+# product_type sub attribute, value string;
 needs_packaging sub attribute, value boolean;
 
 
@@ -20,9 +20,9 @@ product sub can_move,
     # owns physical_state,
     # owns product_type;
   
-freezer_goods sub product;
-fresh_goods sub product;
-shelf_goods sub product;
+freezer_product sub product;
+fresh_product sub product;
+regular_product sub product;
 
 
 can_not_move sub entity;
@@ -38,44 +38,57 @@ loading_table sub location;
 
 
 # RULES
-rule shelf_goods_on_shelf:
+rule regular_products_dont_need_packaging:
   when {
-    $prod isa shelf_goods;
-  } then {
-    $prod has storage_type "shelf";
-  };
-rule shelf_goods_dont_need_packaging:
-when {
-  $prod isa shelf_goods;
-} then {
-  $prod has needs_packaging false;
-};
-
-rule fresh_goods_on_shelf:
-  when {
-    $prod isa fresh_goods;
-  } then {
-    $prod has storage_type "shelf";
-  };
-rule fresh_goods_need_packaging:
-  when {
-    $prod isa fresh_goods;
-  } then {
-    $prod has needs_packaging true;
-  };
-
-rule freezer_goods_in_freezer:
-  when {
-    $prod isa freezer_goods;
-  } then {
-    $prod has storage_type "freezer";
-  };
-rule freezer_goods_dont_need_packaging:
-  when {
-    $prod isa freezer_goods;
+    $prod isa regular_product;
   } then {
     $prod has needs_packaging false;
   };
+rule fresh_products_need_packaging:
+  when {
+    $prod isa fresh_product;
+  } then {
+    $prod has needs_packaging true;
+  };
+rule freezer_products_dont_need_packaging:
+  when {
+    $prod isa freezer_product;
+  } then {
+    $prod has needs_packaging false;
+  };
+
+
+rule regular_products_on_shelf:
+  when {
+    $prod isa regular_product;
+  } then {
+    $prod has storage_type "shelf";
+  };
+rule fresh_products_on_shelf:
+  when {
+    $prod isa fresh_product;
+  } then {
+    $prod has storage_type "shelf";
+  };
+rule freezer_products_in_freezer:
+  when {
+    $prod isa freezer_product;
+    # $dest isa freezer;
+  } then {
+    $prod has storage_type "freezer";
+    # (where: $dest, what: $prod) isa destination_at;
+  };
+# rule freezer_products_in_freezer_relation:
+#   when {
+#     $prod isa freezer_product;
+#     $dest isa freezer;
+#   } then {
+#     # $prod has storage_type "freezer";
+#     (where: $dest, what: $prod) isa destination_at;
+#   };
+
+
+
 
 
 # RELATIONS
