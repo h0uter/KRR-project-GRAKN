@@ -36,7 +36,6 @@ def generate_pddl_init(product_name):
     line_to_add = []
     for i in range(len(product_name)):
     	line_to_add.append(f"\t\t(object-at {product_name[i]} wp_table_1) \n")
-    	line_to_add.append(f"\t\t(active {product_name[i]}) \n")
     for i in range(len(line_to_add)):
          f.write(line_to_add[i])
     f.close()    
