@@ -78,6 +78,8 @@ if __name__ == "__main__":
 
         # write_to_KB(new_product_name, new_product_storage_type)
         write_to_KB(new_product_name, new_product_type)
+        print("All the products currently in the knowledgebase are:")
+        read_all_products_in_KB()
 
 
     # product_name = input("Enter the product name (brood, kroket, hagelslag): ")
@@ -96,7 +98,7 @@ if __name__ == "__main__":
         packaging_bools.append(needs_packaging)
     	        
         
-        simulation_name = input("What is the name of the simulated item (e.g. aruco_cube_[number]):")
+        simulation_name = input("What is the full name of the simulated item (e.g. aruco_cube_XXX):")
         product_names.append(product_name)
         simulation_names.append(simulation_name)
     # product_name = 'hagelslag'

@@ -6,7 +6,7 @@
 
 def generate_pddl_obj(product_name):
     # FILE HANDLING
-    f = open("pddl_generators/problem_template_objects.pddl", "r")
+    f = open("./pddl_generators/problem_template_objects.pddl", "r")
 
     text_to_add = f.read()
 
@@ -24,7 +24,7 @@ def generate_pddl_obj(product_name):
     f.close()    
 
 def generate_pddl_init(product_name):
-    f = open("pddl_generators/problem_template_init.pddl", "r")
+    f = open("./pddl_generators/problem_template_init.pddl", "r")
 
     text_to_add = f.read()
 
@@ -42,7 +42,7 @@ def generate_pddl_init(product_name):
 
 
 def generate_pddl_goal(product_name, storage_location, packaging_bools):
-    f = open("pddl_generators/problem_template_goal.pddl", "r")
+    f = open("./pddl_generators/problem_template_goal.pddl", "r")
 
     text_to_add = f.read()
 
@@ -64,6 +64,8 @@ def generate_pddl_goal(product_name, storage_location, packaging_bools):
 
 def generate_pddl(product_name, simulation_name, storage_location,packaging_bools):
     # CONVERT PRODUCT TO ITEMS IN THE SIMULATION
+    # wp_cabinet2 is de rechter kast
+    # wp_cabinet1 is de linker kast
     storage_location_converter = {
         "freezer": "wp_cabinet_1",
         "shelf": "wp_cabinet_2"
