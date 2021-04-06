@@ -56,54 +56,101 @@ def read_all_products_in_KB():
                     # print(product.get_value())
                     print("- " + product.get_value())
 
-if __name__ == "__main__":
-    # execute only if run as a script
 
+def demo_run():
     # list all products in the KB
     print("All the products currently in the knowledgebase are:")
     read_all_products_in_KB()
 
     # ask user input
     new_product_yes_no = input("Do you want to add a new product? (y/n): ")
-    # new_product_yes_no = "y"
 
     if new_product_yes_no == "y":
-        new_product_name = input("What is the name of the new product: ")
-        # new_product_name = "kip"
-        # new_product_storage_type = input(
-        #     "What is the storage type of the new product? (shelf/freezer): ")
+        new_product_name = input("What is the name of the new product?: ")
         new_product_type = input(
             "What is the product group of the new product? (regular_product/freezer_product/fresh_product): ")
-        # new_product_storage_type = "freezer"
 
-        # write_to_KB(new_product_name, new_product_storage_type)
         write_to_KB(new_product_name, new_product_type)
         print("All the products currently in the knowledgebase are:")
         read_all_products_in_KB()
 
-
-    # product_name = input("Enter the product name (brood, kroket, hagelslag): ")
     iterations = input("how many items are in the simulation? (int) :")
+
     product_names = []
     simulation_names = []
     storage_locations = []
     packaging_bools = []
     for i in range(int(iterations)):
         print("for product", (i + 1),":")
-        product_name = input("What is the name of the product: ")
 
-        # VAN READ KB KRIJG JE NU DUS 2 DINGEN TERUG: storage_type en needs_packaging
+        product_name = input("What is the name of product " + str(i+1) + "?: ")
+
         storage_type, needs_packaging = read_from_KB(product_name)
         storage_locations.append(storage_type)
         packaging_bools.append(needs_packaging)
     	        
-        
-        simulation_name = input("What is the full name of the simulated item (e.g. aruco_cube_XXX):")
+        cube_number = input("Which cube number do you want to assign to the product? (111, 222, 333, 444, 582):")
+        simulation_name = "aruco_cube_" + cube_number 
+
         product_names.append(product_name)
         simulation_names.append(simulation_name)
-    # product_name = 'hagelslag'
-
-    
-
 
     generate_pddl(product_names, simulation_names, storage_locations, packaging_bools)
+
+
+def debug_run():
+    # list all products in the KB
+    print("All the products currently in the knowledgebase are:")
+    read_all_products_in_KB()
+
+    # ask user input
+    # new_product_yes_no = input("Do you want to add a new product? (y/n): ")
+    new_product_yes_no = "n"
+
+    if new_product_yes_no == "y":
+        # new_product_name = input("What is the name of the new product: ")
+        new_product_name = "kip1"
+
+        # new_product_type = input(
+        #     "What is the product group of the new product? (regular_product/freezer_product/fresh_product): ")
+        new_product_storage_type = "freezer_product"
+
+        # write_to_KB(new_product_name, new_product_storage_type)
+        write_to_KB(new_product_name, new_product_type)
+        print("All the products currently in the knowledgebase are:")
+        read_all_products_in_KB()
+
+    # iterations = input("how many items are in the simulation? (int) :")
+    iterations = 2
+
+    product_names = []
+    simulation_names = []
+    storage_locations = []
+    packaging_bools = []
+    for i in range(int(iterations)):
+        print("for product", (i + 1),":")
+
+        # product_name = input("What is the name of the product: ")
+        debug_products = ["kroket1", "hagelslag1"]
+        product_name = debug_products[i]
+
+        storage_type, needs_packaging = read_from_KB(product_name)
+        storage_locations.append(storage_type)
+        packaging_bools.append(needs_packaging)
+    	        
+        # simulation_name = input("What is the of the simulated item (e.g. aruco_cube_XXX):")
+        debug_simulation_name = ["aruco_cube_222", "aruco_cube_444"]
+        simulation_name = debug_simulation_name[i]
+
+        product_names.append(product_name)
+        simulation_names.append(simulation_name)
+
+    generate_pddl(product_names, simulation_names, storage_locations, packaging_bools)
+
+
+
+if __name__ == "__main__":
+    # execute only if run as a script
+
+    # debug_run()
+    demo_run()

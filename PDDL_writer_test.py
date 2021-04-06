@@ -23,7 +23,7 @@ def generate_pddl_obj(product_name):
     f.close()   
     f.close()    
 
-def generate_pddl_init(product_name):
+def generate_pddl_init(product_names):
     f = open("./pddl_generators/problem_template_init.pddl", "r")
 
     text_to_add = f.read()
@@ -32,21 +32,33 @@ def generate_pddl_init(product_name):
 
     f = open("../retail_store_planning/pddl_files/problem_pick_place.pddl", "a")
 
+    product_name_to_table_converter = {
+        "aruco_cube_111": "wp_table_2",
+        "aruco_cube_222": "wp_table_2",
+        "aruco_cube_333": "wp_table_3",
+        "aruco_cube_444": "wp_table_3", 
+        "aruco_cube_582": "wp_table_1"
+    }
+
+
     f.write(text_to_add)
     line_to_add = []
-    for i in range(len(product_name)):
-    	line_to_add.append(f"\t\t(object-at {product_name[i]} wp_table_1) \n")
+    for i in range(len(product_names)):
+    	line_to_add.append(f"\t\t(object-at {product_names[i]} {product_name_to_table_converter[product_names[i]]}) \n")
     for i in range(len(line_to_add)):
          f.write(line_to_add[i])
     f.close()    
 
 
 def generate_pddl_goal(product_name, storage_location, packaging_bools):
+    packaging_table_name = "wp_table_2"
+
     f = open("./pddl_generators/problem_template_goal.pddl", "r")
 
     text_to_add = f.read()
 
     f.close()
+
 
     f = open("../retail_store_planning/pddl_files/problem_pick_place.pddl", "a")
     f.write(text_to_add)
@@ -55,7 +67,7 @@ def generate_pddl_goal(product_name, storage_location, packaging_bools):
         line_to_add.append(f"\t\t(object-at {product_name[i]} {storage_location[i]}) \n")
         if (packaging_bools[i]== True):
             line_to_add.append(
-                f"\t\t(packaged-at {product_name[i]} wp_table_2) \n")
+                f"\t\t(packaged-at {product_name[i]} {packaging_table_name}) \n")
     line_to_add.append(")) \n")
     line_to_add.append(") \n")
     for i in range(len(line_to_add)):

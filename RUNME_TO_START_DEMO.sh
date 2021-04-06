@@ -21,10 +21,10 @@ python3 ~/ro47014_ws/src/retail_store_lightweight_sim_students/KRR-project-GRAKN
 
 wait
 
-# gnome-terminal -- /bin/sh -c '
-# echo "terminal1: Python GRAKN-PDDL interface";
-# python3 ~/ro47014_ws/src/retail_store_lightweight_sim_students/KRR-project-GRAKN/KRR_kb_interface.py;
-# "' 
+# # gnome-terminal -- /bin/sh -c '
+# # echo "terminal1: Python GRAKN-PDDL interface";
+# # python3 ~/ro47014_ws/src/retail_store_lightweight_sim_students/KRR-project-GRAKN/KRR_kb_interface.py;
+# # "' 
 
 
 gnome-terminal -- /bin/sh -c '
@@ -48,7 +48,7 @@ roslaunch retail_store_planning rosplan_pick_place.launch;
 /bin/sh
 "'
 
-sleep 5
+sleep 10
 
 gnome-terminal -- /bin/sh -c '
 echo "terminal4: plan executor";
