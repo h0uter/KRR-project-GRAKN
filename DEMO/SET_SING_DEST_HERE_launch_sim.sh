@@ -2,30 +2,7 @@
 # I tried to find a way to pass it as an argument with the var below, but I could not get it to work :(
 # SINGULARITY_PATH=~/KRR
 
-gnome-terminal -- /bin/sh -c '
-echo "terminal0: start GRAKN SERVER";
-~/ro47014_ws/src/retail_store_lightweight_sim_students/KRR-project-GRAKN/grakn server;
-/bin/sh
-'
-
-sleep 5
-
-gnome-terminal -- sh -c '
-echo "terminal0: start GRAKN console to load schema and data";
-~/ro47014_ws/src/retail_store_lightweight_sim_students/KRR-project-GRAKN/grakn console --script=GRAKN_console_script.sh
-'
-
-sleep 5
-
-python3 ~/ro47014_ws/src/retail_store_lightweight_sim_students/KRR-project-GRAKN/KRR_kb_interface.py;
-
-wait
-
-# # gnome-terminal -- /bin/sh -c '
-# # echo "terminal1: Python GRAKN-PDDL interface";
-# # python3 ~/ro47014_ws/src/retail_store_lightweight_sim_students/KRR-project-GRAKN/KRR_kb_interface.py;
-# # "' 
-
+sleep 10
 
 gnome-terminal -- /bin/sh -c '
 echo "terminal2: start simulation environment";
@@ -37,7 +14,7 @@ roslaunch retail_store_simulation tiago_simulation.launch world:=multiple_cubes 
 /bin/sh
 "'
 
-sleep 5
+sleep 10
 
 gnome-terminal -- /bin/sh -c '
 echo "terminal3: launch planner";
@@ -48,7 +25,7 @@ roslaunch retail_store_planning rosplan_pick_place.launch;
 /bin/sh
 "'
 
-sleep 10
+sleep 15
 
 gnome-terminal -- /bin/sh -c '
 echo "terminal4: plan executor";
@@ -58,4 +35,3 @@ source ~/ro47014_ws/devel/setup.bash;
 ~/ro47014_ws/src/retail_store_lightweight_sim_students/retail_store_planning/rosplan_executor.bash;
 /bin/sh
 "'
-

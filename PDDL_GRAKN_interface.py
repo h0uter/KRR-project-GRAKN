@@ -1,6 +1,6 @@
 from grakn.client import *
 
-from PDDL_writer_test import *
+from PDDL_generation import *
 
 def write_to_KB(product_name, product_type):
     with Grakn.core_client("localhost:1729") as client:
@@ -57,7 +57,7 @@ def read_all_products_in_KB():
                     print("- " + product.get_value())
 
 
-def demo_run():
+def interactive_demo_run():
     # list all products in the KB
     print("All the products currently in the knowledgebase are:")
     read_all_products_in_KB()
@@ -98,14 +98,14 @@ def demo_run():
     generate_pddl(product_names, simulation_names, storage_locations, packaging_bools)
 
 
-def debug_run():
+def static_demo_run():
     # list all products in the KB
     print("All the products currently in the knowledgebase are:")
     read_all_products_in_KB()
 
     # ask user input
     # new_product_yes_no = input("Do you want to add a new product? (y/n): ")
-    new_product_yes_no = "n"
+    new_product_yes_no = "y"
 
     if new_product_yes_no == "y":
         # new_product_name = input("What is the name of the new product: ")
@@ -113,15 +113,15 @@ def debug_run():
 
         # new_product_type = input(
         #     "What is the product group of the new product? (regular_product/freezer_product/fresh_product): ")
-        new_product_storage_type = "freezer_product"
+        group_of_new_product = "freezer_product"
 
-        # write_to_KB(new_product_name, new_product_storage_type)
-        write_to_KB(new_product_name, new_product_type)
+        write_to_KB(new_product_name, group_of_new_product)
+        # write_to_KB(new_product_name, new_product_type)
         print("All the products currently in the knowledgebase are:")
         read_all_products_in_KB()
 
     # iterations = input("how many items are in the simulation? (int) :")
-    iterations = 2
+    iterations = 3
 
     product_names = []
     simulation_names = []
@@ -131,7 +131,7 @@ def debug_run():
         print("for product", (i + 1),":")
 
         # product_name = input("What is the name of the product: ")
-        debug_products = ["kroket1", "hagelslag1"]
+        debug_products = ["kroket1", "hagelslag1", "kip1"]
         product_name = debug_products[i]
 
         storage_type, needs_packaging = read_from_KB(product_name)
@@ -139,7 +139,7 @@ def debug_run():
         packaging_bools.append(needs_packaging)
     	        
         # simulation_name = input("What is the of the simulated item (e.g. aruco_cube_XXX):")
-        debug_simulation_name = ["aruco_cube_222", "aruco_cube_444"]
+        debug_simulation_name = ["aruco_cube_222", "aruco_cube_444", "aruco_cube_582"]
         simulation_name = debug_simulation_name[i]
 
         product_names.append(product_name)
@@ -149,8 +149,8 @@ def debug_run():
 
 
 
-if __name__ == "__main__":
-    # execute only if run as a script
+# if __name__ == "__main__":
+#     # execute only if run as a script
 
-    # debug_run()
-    demo_run()
+#     static_demo_run()
+#     interactive_demo_run()

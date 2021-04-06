@@ -3,8 +3,6 @@ define
 # ATTRIBUTES
 storage_type sub attribute, value string;
 name sub attribute, value string;
-# physical_state sub attribute, value string;
-# product_type sub attribute, value string;
 needs_packaging sub attribute, value boolean;
 
 
@@ -17,8 +15,7 @@ product sub can_move,
     owns storage_type,
     owns name,
     owns needs_packaging;
-    # owns physical_state,
-    # owns product_type;
+
   
 freezer_product sub product;
 fresh_product sub product;
@@ -78,6 +75,10 @@ rule freezer_products_in_freezer:
     $prod has storage_type "freezer";
     # (where: $dest, what: $prod) isa destination_at;
   };
+
+
+# RELATIONSHIP RULES EXPERIMENT
+
 # rule freezer_products_in_freezer_relation:
 #   when {
 #     $prod isa freezer_product;
@@ -86,9 +87,6 @@ rule freezer_products_in_freezer:
 #     # $prod has storage_type "freezer";
 #     (where: $dest, what: $prod) isa destination_at;
 #   };
-
-
-
 
 
 # RELATIONS
@@ -100,26 +98,3 @@ destination_at sub relation,
   relates where,
   relates what;
 
-
-############################################################### old
-
-# storage_type sub attribute, value string;
-# name sub attribute, value string;
-# physical_state sub attribute, value string;
-# product_type sub attribute, value string;
-
-# product sub entity,
-#     owns storage_type,
-#     owns name,
-#     owns physical_state,
-#     owns product_type;
-  
-
-
-
-# rule drink_never_in_freezer:
-#   when {
-#     $prod isa product, has physical_state "liquid";
-#   } then {
-#     $prod has storage_type "shelf" ;
-#   };

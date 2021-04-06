@@ -6,13 +6,15 @@
 
 def generate_pddl_obj(product_name):
     # FILE HANDLING
-    f = open("./pddl_generators/problem_template_objects.pddl", "r")
+    f = open("../pddl_templates/problem_template_objects.pddl", "r")
+    # f = open("~/ro47014_ws/src/retail_store_lightweight_sim_students/KRR-project-GRAKN/pddl_templates/problem_template_objects.pddl", "r")
 
     text_to_add = f.read()
 
     f.close()
 
-    f = open("../retail_store_planning/pddl_files/problem_pick_place.pddl", "w")
+    f = open("../../retail_store_planning/pddl_files/problem_pick_place.pddl", "w")
+    # f = open("~/ro47014_ws/src/retail_store_lightweight_sim_students/retail_store_planning/pddl_files/problem_pick_place.pddl", "w")
 
     f.write(text_to_add)
     line_to_add = []
@@ -24,13 +26,14 @@ def generate_pddl_obj(product_name):
     f.close()    
 
 def generate_pddl_init(product_names):
-    f = open("./pddl_generators/problem_template_init.pddl", "r")
+    f = open("../pddl_templates/problem_template_init.pddl", "r")
+    # f = open("~/ro47014_ws/src/retail_store_lightweight_sim_students/KRR-project-GRAKN/pddl_templates/problem_template_init.pddl", "r")
 
     text_to_add = f.read()
 
     f.close()
-
-    f = open("../retail_store_planning/pddl_files/problem_pick_place.pddl", "a")
+    f = open("../../retail_store_planning/pddl_files/problem_pick_place.pddl", "a")
+    # f = open("~/ro47014_ws/src/retail_store_lightweight_sim_students/retail_store_planning/pddl_files/problem_pick_place.pddl", "a")
 
     product_name_to_table_converter = {
         "aruco_cube_111": "wp_table_2",
@@ -53,14 +56,15 @@ def generate_pddl_init(product_names):
 def generate_pddl_goal(product_name, storage_location, packaging_bools):
     packaging_table_name = "wp_table_2"
 
-    f = open("./pddl_generators/problem_template_goal.pddl", "r")
+    f = open("../pddl_templates/problem_template_goal.pddl", "r")
+    # f = open("~/ro47014_ws/src/retail_store_lightweight_sim_students/KRR-project-GRAKN/pddl_templates/problem_template_goal.pddl", "r")
 
     text_to_add = f.read()
 
     f.close()
 
-
-    f = open("../retail_store_planning/pddl_files/problem_pick_place.pddl", "a")
+    f = open("../../retail_store_planning/pddl_files/problem_pick_place.pddl", "a")
+    # f = open("~/ro47014_ws/src/retail_store_lightweight_sim_students/retail_store_planning/pddl_files/problem_pick_place.pddl", "a")
     f.write(text_to_add)
     line_to_add = []
     for i in range(len(product_name)):
